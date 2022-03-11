@@ -1,0 +1,33 @@
+# creo una istanza della classe FPDF
+        pdf = FPDF()
+
+        # aggiungo una pagina al report
+        pdf.add_page() 
+        
+        # setta lo stile  (possiamo settarlo per ogni cella)
+        pdf.set_font("Arial", size = 40, style = "B") 
+
+        # settiamo il colore (verde in questo caso) - possiamo settare un colore diverso per ogni cella (nero di default)
+        pdf.set_text_color(0,0,255)
+
+        # crea una cella (un rettangolo all'interno del pdf) dove inserisci del testo
+        pdf.cell(w = 0, h = 40, txt = "Bolletta", border = 1, align = 'C', ln = 1) 
+
+                # creo altre due celle relative al periodo e cambio lo stile
+        pdf.set_font("Arial", size = 22, style = "B") 
+        pdf.set_text_color(0,0,0)
+        pdf.cell(w = 40, h = 20, txt = "Periodo: ", border = 0, align = 'L')
+        pdf.cell(w = 60, h = 20, txt = bill.period, border = 0, align = 'L', ln = 1)
+
+        # creo le celle relative ai due inquilini
+        pdf.set_font("Arial", size = 20) 
+        pdf.set_text_color(0,0,0)
+        pdf.cell(w = 40, h = 20, txt = inquilino1.nome, border = 0, align = 'L')
+        pdf.cell(w = 60, h = 20, txt = str(round(inquilino1.paga(bill,inquilino2), 2)) + " euro", border = 0, align = 'L', ln = 1)
+        pdf.cell(w = 40, h = 20, txt = inquilino2.nome, border = 0, align = 'L')
+        pdf.cell(w = 60, h = 20, txt = str(round(inquilino2.paga(bill,inquilino1), 2)) + " euro", border = 0, align = 'L', ln = 1)
+
+        
+        output = self.filename + ".pdf"
+        # salva il pdf con estensione .pdf 
+        pdf.output(output)
