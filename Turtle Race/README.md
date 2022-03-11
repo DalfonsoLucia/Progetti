@@ -1,1 +1,1 @@
-
+Turtle Race (La corsa delle tartarughe), il mio primo progettino, la corsa delle tartarughe è un gioco dove 6 tartarughe colorate corrono, avviando il gioco uscirà una finestra grafica che vi chiederà su quale tartaruga puntare, una volta inserito il colore (Red o Yellow o il colore che preferite), inizia la corsa che verrà stampato sulla finestra della corsa quale tartaruga ha vinto alla fine della corsa.
